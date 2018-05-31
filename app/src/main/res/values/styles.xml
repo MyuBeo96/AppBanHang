@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorToolBa</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/bgcart</item>
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+    </style>
+
+    <style name="colorItem" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="drawerArrowStyle">@style/colorDrawerToggle</item>
+    </style>
+
+    <style name="colorDrawerToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/colorWhite</item>
+    </style>
+
+    <style name="capfalse" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+
+    </style>
+
+    <declare-styleable name="CustomPassword">
+        <attr name="useStrike" format="boolean"></attr>
+        <attr name="useValidate" format="boolean"></attr>
+    </declare-styleable>
+
+
+
+</resources>

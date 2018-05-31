@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/img_giamGia"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="4dp"
+        android:src="@drawable/back_to_school"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/txt_tenNoiBat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thuong_hieu"
+        android:layout_margin="4dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_ThuongHieu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/txt_tenTopNoiBat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/laptop"
+        android:layout_margin="4dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_Laptop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

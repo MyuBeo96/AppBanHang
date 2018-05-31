@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    >
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        >
+
+        <com.myubeo.appbanhang.CustomView.CustomClear
+            android:id="@+id/ed_DNEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Địa chỉ Email"
+            android:textColor="@color/colorBlack"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        >
+
+        <com.myubeo.appbanhang.CustomView.CustomPassword
+            android:id="@+id/ed_DNMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/matkhau"
+            android:textColor="@color/colorBlack"
+            app:useStrike="true"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_QuenMatKhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quenmk"
+        android:gravity="right"
+        android:layout_margin="16dp"
+        android:textColor="@color/colorGreen"
+        />
+
+    <Button
+        android:id="@+id/btn_DangNhap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dangnhap"
+        android:layout_margin="16dp"
+        android:background="@color/bgcart"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hoacdangnhap"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_DNFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/facebookiconsmall"
+            android:text="@string/facebook"
+            android:background="@drawable/vienfacebook"
+            android:textColor="@color/colorFacebook"
+            android:layout_margin="8dp"
+            />
+
+        <Button
+            android:id="@+id/btn_DNGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/googleplussmall"
+            android:text="@string/google"
+            android:background="@drawable/viengoogle"
+            android:textColor="@color/colorGoogle"
+            android:layout_margin="8dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

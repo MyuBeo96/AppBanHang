@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:background="@color/colorWhite"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/prb_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
+        <LinearLayout
+            android:id="@+id/ln_ThuongHieu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="4dp"
+            >
+
+            <TextView
+                android:id="@+id/txt_tieude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/asus"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:textColor="@color/colorBlack"
+                android:textAlignment="center"
+                />
+
+            <ImageView
+                android:id="@+id/img_ThuongHieu"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

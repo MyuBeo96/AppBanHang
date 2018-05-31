@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_dientu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <ImageView
+                android:id="@+id/img_giamGiaLapTop"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/background"
+                android:scaleType="centerCrop"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/top10"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topspbantrongthang"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:padding="10dp"
+                            />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/giare"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanphamchatluong"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:padding="10dp"
+                            />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/top"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanpham"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:padding="10dp"
+                            />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/noitien"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanphamnoitieng"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:padding="10dp"
+                            />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_sanpham1"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:src="@drawable/background"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:id="@+id/txt_sanpham1"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanpham"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="10dp"
+                            android:padding="10dp"
+                            android:layout_gravity="bottom"
+                            />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_sanpham2"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:src="@drawable/background"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:id="@+id/txt_sanpham2"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanphamnoitieng"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="10dp"
+                            android:padding="10dp"
+                            android:layout_gravity="bottom"
+                            />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        >
+
+                        <ImageView
+                            android:id="@+id/img_sanpham3"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:src="@drawable/background"
+                            android:scaleType="centerCrop"
+                            />
+
+                        <TextView
+                            android:id="@+id/txt_sanpham3"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:background="@color/colorTranparentBack"
+                            android:text="@string/topsanphamnoitieng"
+                            android:textColor="@color/colorWhite"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="10dp"
+                            android:padding="10dp"
+                            android:layout_gravity="bottom"
+                            />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/topthuonghieu"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcw_logothuonghieu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hangmoive"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcw_hangmoive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

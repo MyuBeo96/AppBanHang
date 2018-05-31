@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/id_Search"
+        android:title="Search"
+        android:icon="@drawable/ic_search_white"
+        app:showAsAction="always"
+        android:visible="false"
+        />
+
+    <item
+        android:id="@+id/id_Cart"
+        android:title="Cart"
+        android:icon="@drawable/ic_shopping_cart_white"
+        app:showAsAction="always"
+        app:actionLayout="@layout/custom_cart"
+        />
+
+    <item
+        android:id="@+id/id_MoreVert"
+        android:title="Cart"
+        android:icon="@drawable/ic_more_vert_white"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/id_DangNhap"
+                android:title="Đăng nhập"
+                android:icon="@drawable/ic_sentiment_satisfied_black"
+                />
+
+            <item
+                android:id="@+id/id_ThongBao"
+                android:title="Thông báo"
+                android:icon="@drawable/ic_notifications_none_black"
+                />
+
+            <item
+                android:id="@+id/id_Favorite"
+                android:title="Danh sách mong muốn"
+                android:icon="@drawable/ic_favorite_border_black"
+                />
+
+            <item
+                android:id="@+id/id_Order"
+                android:title="Đơn hàng của tôi"
+                android:icon="@drawable/ic_content_paste_black"
+                />
+
+            <item
+                android:id="@+id/id_Setting"
+                android:title="Cài đặt"
+                android:icon="@drawable/ic_settings_black"
+                />
+
+            <item
+                android:id="@+id/id_Policy"
+                android:title="Chính sách"
+                android:icon="@drawable/ic_import_contacts_black"
+                />
+
+            <item
+                android:id="@+id/id_Help"
+                android:title="Trợ giúp"
+                android:icon="@drawable/ic_help_outline_black"
+                />
+
+            <item
+                android:id="@+id/id_Logout"
+                android:title="Đăng xuất"
+                android:icon="@drawable/ic_logout"
+                android:visible="false"
+                />
+        </menu>
+
+    </item>
+</menu>

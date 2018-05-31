@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    >
+
+    <gradient
+        android:angle="135"
+        android:endColor="@color/bgcart"
+        android:startColor="@color/bgcart"
+        android:type="linear" />
+
+    <size
+        android:width="@dimen/activity_horizontal_margin"
+        android:height="@dimen/activity_horizontal_margin" />
+
+</shape>
