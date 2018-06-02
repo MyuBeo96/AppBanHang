@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ModelHienThiSanPhamTheoMaDanhMuc {
 
-    public List<SanPham> LayDanhSachSanPhamTheoMaLoai(int maSP, String tenHam, String tenMang, int limit){
+    public static List<SanPham> LayDanhSachSanPhamTheoMaLoaiSP(int maSP, String tenHam, String tenMang, int limit){
         List<SanPham> sanPhamList = new ArrayList<>();
         List<HashMap<String, String>> attrs = new ArrayList<>();
 

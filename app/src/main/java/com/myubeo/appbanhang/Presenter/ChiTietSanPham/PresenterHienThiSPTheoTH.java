@@ -10,20 +10,20 @@ import java.util.List;
 public class PresenterHienThiSPTheoTH implements ImpPresenterHienThiSPTheoTH {
 
     ViewHienThiSPTheoTH viewHienThiSPTheoTH;
-    ModelHienThiSanPhamTheoMaDanhMuc modelHienThiSanPhamTheoTH;
+    ModelHienThiSanPhamTheoMaDanhMuc modelHienThiSanPhamTheoMaDanhMuc;
 
     public PresenterHienThiSPTheoTH(ViewHienThiSPTheoTH viewHienThiSPTheoTH){
         this.viewHienThiSPTheoTH = viewHienThiSPTheoTH;
-        modelHienThiSanPhamTheoTH = new ModelHienThiSanPhamTheoMaDanhMuc();
+        modelHienThiSanPhamTheoMaDanhMuc = new ModelHienThiSanPhamTheoMaDanhMuc();
     }
 
     @Override
     public void LayDanhSachSanPhamTheoMaLoai(int masp, boolean kiemTra) {
         List<SanPham> sanPhamList = new ArrayList<>();
         if (kiemTra) {
-            sanPhamList = modelHienThiSanPhamTheoTH.LayDanhSachSanPhamTheoMaLoai(masp, "LayDanhSachSanPhamTheoMaThuongHieu", "DANHSACHSANPHAM",20);
+            sanPhamList = modelHienThiSanPhamTheoMaDanhMuc.LayDanhSachSanPhamTheoMaLoaiSP(masp, "LayDanhSachSanPhamTheoMaThuongHieu", "DANHSACHSANPHAM",20);
         } else {
-            sanPhamList = modelHienThiSanPhamTheoTH.LayDanhSachSanPhamTheoMaLoai(masp, "LayDanhSachSanPhamTheoMaLoaiDanhMuc", "DANHSACHSANPHAM", 20);
+            sanPhamList = modelHienThiSanPhamTheoMaDanhMuc.LayDanhSachSanPhamTheoMaLoaiSP(masp, "LayDanhSachSanPhamTheoMaLoaiDanhMuc", "DANHSACHSANPHAM", 20);
 
         }
         if(sanPhamList.size() > 0){
