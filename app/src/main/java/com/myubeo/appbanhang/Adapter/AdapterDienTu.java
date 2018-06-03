@@ -71,7 +71,7 @@ public class AdapterDienTu extends RecyclerView.Adapter<AdapterDienTu.ViewHolder
         adapterThuongHieu.notifyDataSetChanged();
 
         //Xu ly hien thi top laptop o dien tu
-        AdapterTopMayTinh adapterTopMayTinh = new AdapterTopMayTinh(context, dienTu.getSanPhams());
+        AdapterTopMayTinh adapterTopMayTinh = new AdapterTopMayTinh(context,R.layout.custom_recyclerview_laptop, dienTu.getSanPhams());
 
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 

@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,6 +29,8 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
     PresenterHienThiSPTheoTH hienThiSPTheoTH;
     int maTH;
     boolean kiemTra;
+    AdapterTopMayTinh adapterChiTietMayTinh;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
 
         recyclerView = findViewById(R.id.rcv_hienThiDSSanPham);
         btn_list = findViewById(R.id.btn_list);
+
+        toolbar = findViewById(R.id.toolbar);
 
         Intent intent = getIntent();
         maTH = intent.getIntExtra("MATH", 0);
@@ -46,17 +52,29 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
 
         btn_list.setOnClickListener(this);
 
+        toolbar.setTitle(tenTh);
+        setSupportActionBar(toolbar);
 
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menutrangchu, menu);
+        return true;
+    }
+
+    @Override
     public void HienThiDanhSachSP(List<SanPham> sanPhamList) {
-        AdapterTopMayTinh adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this, sanPhamList);
+//        adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_recyclerview_laptop, sanPhamList);
 
         if(dangGrid){
             layoutManager = new GridLayoutManager(HienThiSanPhamTheoDanhMucActivity.this, 2);
+            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_recyclerview_laptop, sanPhamList);
+
         }else {
             layoutManager = new LinearLayoutManager(HienThiSanPhamTheoDanhMucActivity.this);
+            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_layout_list_topdienthoaimaytinh, sanPhamList);
+
         }
 
         recyclerView.setLayoutManager(layoutManager);

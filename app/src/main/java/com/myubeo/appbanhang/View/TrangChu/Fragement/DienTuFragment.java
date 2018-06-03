@@ -98,7 +98,7 @@ public class DienTuFragment extends Fragment implements ViewDienTu{
 
     @Override
     public void HienThiDanhSachSPMoiVe(List<SanPham> sanPhamList) {
-        AdapterTopMayTinh adapterTopMayTinh = new AdapterTopMayTinh(getContext(), sanPhamList);
+        AdapterTopMayTinh adapterTopMayTinh = new AdapterTopMayTinh(getContext(), R.layout.custom_recyclerview_laptop, sanPhamList);
 
         RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 

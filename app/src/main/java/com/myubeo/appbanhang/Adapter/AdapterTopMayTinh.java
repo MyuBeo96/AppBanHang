@@ -22,10 +22,12 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
 
     Context context;
     List<SanPham> sanPhamList;
+    int layout;
 
-    public AdapterTopMayTinh(Context context, List<SanPham> sanPhamList){
+    public AdapterTopMayTinh(Context context, int layout,List<SanPham> sanPhamList){
         this.context = context;
         this.sanPhamList = sanPhamList;
+        this.layout = layout;
     }
 
     public class ViewHolderTopMayTinh extends RecyclerView.ViewHolder {
@@ -48,7 +50,7 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
     @Override
     public ViewHolderTopMayTinh onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.custom_recyclerview_laptop, parent, false);
+        View view = inflater.inflate(layout, parent, false);
 
         ViewHolderTopMayTinh viewHolderTopMayTinh = new ViewHolderTopMayTinh(view);
 
