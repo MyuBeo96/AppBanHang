@@ -33,7 +33,7 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_hienthithuonghieusanpham);
 
-        recyclerView = findViewById(R.id.rcv_hienThiSanPham);
+        recyclerView = findViewById(R.id.rcv_hienThiDSSanPham);
         btn_list = findViewById(R.id.btn_list);
 
         Intent intent = getIntent();

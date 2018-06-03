@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
     >
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_square"
+        android:scaleType="centerCrop"
+        />
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp"
         >
-
-        <ImageView
-            android:id="@+id/img_Laptop"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            />
 
         <TextView
             android:id="@+id/txt_Laptop"
@@ -31,7 +31,6 @@
             android:layout_marginTop="5dp"
             android:textStyle="bold|italic"
             android:textAlignment="center"
-            android:maxLength="20"
             />
 
         <TextView
@@ -55,4 +54,4 @@
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+</LinearLayout>
