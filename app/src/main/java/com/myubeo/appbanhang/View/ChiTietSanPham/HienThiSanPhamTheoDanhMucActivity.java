@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.myubeo.appbanhang.Adapter.AdapterTopMayTinh;
+import com.myubeo.appbanhang.Model.ObjectClass.ILoadMore;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterHienThiSPTheoTH;
 import com.myubeo.appbanhang.R;
@@ -79,6 +80,7 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterChiTietMayTinh);
+        recyclerView.addOnScrollListener(new ILoadMore(layoutManager));
         adapterChiTietMayTinh.notifyDataSetChanged();
     }
 
