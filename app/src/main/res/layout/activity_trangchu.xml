@@ -6,106 +6,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        >
 
-        <android.support.design.widget.AppBarLayout
+    <FrameLayout
+        android:id="@+id/themFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorToolBa"
+            android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             >
 
-            <android.support.design.widget.CollapsingToolbarLayout
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll|enterAlways"
+                android:background="@color/colorToolBa"
+                android:fitsSystemWindows="true"
                 >
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_height="?attr/actionBarSize"
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
                     android:layout_width="match_parent"
-                    app:logo="@drawable/logolazada"
-                    app:theme="@style/colorItem"
-                    app:layout_scrollFlags="scroll|enterAlways"
-                    />
+                    android:layout_height="match_parent"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/bgsearch"
-                    android:orientation="horizontal">
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        app:layout_collapseMode="pin"
+                        app:logo="@drawable/logolazada"
+                        app:theme="@style/colorItem" />
 
-                    <Button
+                    <LinearLayout
+                        android:id="@+id/lnSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/selector_search"
-                        android:drawableLeft="@drawable/ic_search_black"
-                        android:gravity="left|center"
-                        android:paddingLeft="12dp"
-                        android:text="@string/menusearch"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="16sp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="80dp"
+                        android:background="@drawable/bgsearch"
+                        android:orientation="horizontal"
+                        app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|snap"
+                        app:layout_collapseMode="parallax"
+                        >
 
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/colorToolBa" />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_search"
+                            android:drawableLeft="@drawable/ic_search_black"
+                            android:paddingLeft="10dp"
+                            android:text="@string/menusearch"
+                            android:textAllCaps="false"
+                            android:layout_gravity="start"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp" />
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="12dp"
-                        android:background="@drawable/selector_search"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_photo_camera_black" />
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorToolBa" />
 
-                </LinearLayout>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/selector_search"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_photo_camera_black" />
 
-            </android.support.design.widget.CollapsingToolbarLayout>
+                    </LinearLayout>
+
+                </android.support.design.widget.CollapsingToolbarLayout>
 
 
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/id_TabLayout"
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/id_TabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabMode="scrollable"
+                    app:tabTextColor="@color/colorGray"
+                    app:tabTextAppearance="@style/capfalse"
+                    >
+
+                </android.support.design.widget.TabLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_Content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabMode="scrollable"
-                app:tabTextColor="@color/colorGray"
-                app:tabTextAppearance="@style/capfalse"
+                android:layout_height="match_parent"
+                app:layout_behavior = "@string/appbar_scrolling_view_behavior"
                 >
 
-            </android.support.design.widget.TabLayout>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/id_ViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </android.support.design.widget.AppBarLayout>
+                </android.support.v4.view.ViewPager>
+            </FrameLayout>
+        </android.support.design.widget.CoordinatorLayout>
 
-        <FrameLayout
-            android:id="@+id/fl_Content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior = "@string/appbar_scrolling_view_behavior"
-            >
+    </FrameLayout>
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/id_ViewPager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </android.support.v4.view.ViewPager>
-        </FrameLayout>
-    </android.support.design.widget.CoordinatorLayout>
 
     <ExpandableListView
         android:id="@+id/ep_Menu"

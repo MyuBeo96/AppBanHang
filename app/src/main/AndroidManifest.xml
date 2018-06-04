@@ -33,8 +33,9 @@
             android:label="@string/lable"
             android:screenOrientation="portrait"/>
 
-        <activity
-            android:name=".View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity"/>
+        <activity android:name=".View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity"/>
+
+        <activity android:name=".View.ChiTietSanPham.ChiTietSanPhamActivity"/>
     </application>
 
 </manifest>

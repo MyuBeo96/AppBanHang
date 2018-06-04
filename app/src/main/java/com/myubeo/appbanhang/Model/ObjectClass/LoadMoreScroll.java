@@ -9,7 +9,7 @@ public class LoadMoreScroll extends RecyclerView.OnScrollListener {
 
     int itemAnDauTien = 0;
     int tongItem = 0;
-    int itemLoadTruoc = 5;
+    int itemLoadTruoc = 6;
     RecyclerView.LayoutManager layoutManager;
     ILoadMore iLoadMore;
 
