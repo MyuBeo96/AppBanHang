@@ -11,9 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.myubeo.appbanhang.Adapter.AdapterTopMayTinh;
 import com.myubeo.appbanhang.Model.ObjectClass.ILoadMore;
+import com.myubeo.appbanhang.Model.ObjectClass.LoadMoreScroll;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterHienThiSPTheoTH;
 import com.myubeo.appbanhang.R;
@@ -21,7 +23,7 @@ import com.myubeo.appbanhang.View.TrangChu.ViewHienThiSPTheoTH;
 
 import java.util.List;
 
-public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity implements ViewHienThiSPTheoTH, View.OnClickListener{
+public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity implements ViewHienThiSPTheoTH, View.OnClickListener, ILoadMore{
 
     RecyclerView recyclerView;
     Button btn_list;
@@ -32,6 +34,8 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
     boolean kiemTra;
     AdapterTopMayTinh adapterChiTietMayTinh;
     Toolbar toolbar;
+    List<SanPham> sanPhamList1;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
         btn_list = findViewById(R.id.btn_list);
 
         toolbar = findViewById(R.id.toolbar);
+        progressBar = findViewById(R.id.prb_load);
 
         Intent intent = getIntent();
         maTH = intent.getIntExtra("MATH", 0);
@@ -66,21 +71,22 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
 
     @Override
     public void HienThiDanhSachSP(List<SanPham> sanPhamList) {
+        sanPhamList1 = sanPhamList;
 //        adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_recyclerview_laptop, sanPhamList);
 
         if(dangGrid){
             layoutManager = new GridLayoutManager(HienThiSanPhamTheoDanhMucActivity.this, 2);
-            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_recyclerview_laptop, sanPhamList);
+            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_recyclerview_laptop, sanPhamList1);
 
         }else {
             layoutManager = new LinearLayoutManager(HienThiSanPhamTheoDanhMucActivity.this);
-            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_layout_list_topdienthoaimaytinh, sanPhamList);
+            adapterChiTietMayTinh = new AdapterTopMayTinh(HienThiSanPhamTheoDanhMucActivity.this,R.layout.custom_layout_list_topdienthoaimaytinh, sanPhamList1);
 
         }
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterChiTietMayTinh);
-        recyclerView.addOnScrollListener(new ILoadMore(layoutManager));
+        recyclerView.addOnScrollListener(new LoadMoreScroll(layoutManager, this));
         adapterChiTietMayTinh.notifyDataSetChanged();
     }
 
@@ -99,5 +105,13 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
                 break;
 
         }
+    }
+
+    @Override
+    public void LoadMore(int tongItem) {
+        List<SanPham> sanPhamsLoadMore = hienThiSPTheoTH.LayDanhSachSanPhamTheoMaLoaiLoadMore(maTH, kiemTra, tongItem, progressBar);
+        sanPhamList1.addAll(sanPhamsLoadMore);
+
+        adapterChiTietMayTinh.notifyDataSetChanged();
     }
 }
