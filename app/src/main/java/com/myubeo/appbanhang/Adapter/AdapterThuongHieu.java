@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.myubeo.appbanhang.Model.ObjectClass.ThuongHieu;
 import com.myubeo.appbanhang.R;
-import com.myubeo.appbanhang.View.ChiTietSanPham.HienThiSanPhamTheoDanhMucActivity;
+import com.myubeo.appbanhang.View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 

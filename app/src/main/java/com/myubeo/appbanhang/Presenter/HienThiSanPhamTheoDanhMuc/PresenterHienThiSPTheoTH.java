@@ -1,9 +1,9 @@
-package com.myubeo.appbanhang.Presenter.ChiTietSanPham;
+package com.myubeo.appbanhang.Presenter.HienThiSanPhamTheoDanhMuc;
 
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.myubeo.appbanhang.Model.ChiTietSanPham.ModelHienThiSanPhamTheoMaDanhMuc;
+import com.myubeo.appbanhang.Model.HienThiSanPhamTheoDanhMuc.ModelHienThiSanPhamTheoMaDanhMuc;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.View.TrangChu.ViewHienThiSPTheoTH;
 

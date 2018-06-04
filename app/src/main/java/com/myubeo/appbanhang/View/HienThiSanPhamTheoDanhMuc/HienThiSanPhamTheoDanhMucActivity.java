@@ -1,4 +1,4 @@
-package com.myubeo.appbanhang.View.ChiTietSanPham;
+package com.myubeo.appbanhang.View.HienThiSanPhamTheoDanhMuc;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import com.myubeo.appbanhang.Adapter.AdapterTopMayTinh;
 import com.myubeo.appbanhang.Model.ObjectClass.ILoadMore;
 import com.myubeo.appbanhang.Model.ObjectClass.LoadMoreScroll;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
-import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterHienThiSPTheoTH;
+import com.myubeo.appbanhang.Presenter.HienThiSanPhamTheoDanhMuc.PresenterHienThiSPTheoTH;
 import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.TrangChu.ViewHienThiSPTheoTH;
 

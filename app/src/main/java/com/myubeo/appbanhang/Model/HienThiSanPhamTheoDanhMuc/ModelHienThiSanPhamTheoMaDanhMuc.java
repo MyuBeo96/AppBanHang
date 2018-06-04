@@ -1,4 +1,4 @@
-package com.myubeo.appbanhang.Model.ChiTietSanPham;
+package com.myubeo.appbanhang.Model.HienThiSanPhamTheoDanhMuc;
 
 import com.myubeo.appbanhang.ConnectInternet.DownloadJSON;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
