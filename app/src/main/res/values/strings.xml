@@ -30,6 +30,7 @@
     <string name="dieukhoan">Tôi đã đọc và hiểu rõ các điều khoản bảo mật</string>
     <string name="tensp">Tên sản phẩm</string>
     <string name="giasp">Giá sản phẩm</string>
+    <string name="giamgiasp">Giá sản phẩm</string>
     <string name="topspbantrongthang">Top 10 sản phẩm bán nhiều trong tháng</string>
     <string name="topsanphamchatluong">Top sản phẩm chất lượng giá rẻ</string>
     <string name="topsanpham">Top sản phẩm</string>
@@ -39,4 +40,15 @@
     <string name="loc">Lọc</string>
     <string name="sapxep">Sắp xếp</string>
     <string name="cacsanpham">Các sản phẩm</string>
+    <string name="banvadonggoiboi">Bán và đóng gói bởi</string>
+    <string name="tencuahang">LYNK MYU</string>
+    <string name="trahang">Trả hàng miễn phí</string>
+    <string name="dambaochinhhang">Đảm bảo chính hãng 100%</string>
+    <string name="baovenguoimuahang">Bảo vệ người mua hàng 100%</string>
+    <string name="dambaosuhailong">Đảm bảo sự hài lòng</string>
+    <string name="chitietsanpham">Chi tiết sản phẩm</string>
+    <string name="danhgiasanpham">Đánh giá và nhận xét</string>
+    <string name="xemnhanxet">Xem tất cả nhận xét</string>
+    <string name="bansethich">Bạn sẽ thích</string>
+    <string name="muahang">Mua hàng</string>
 </resources>

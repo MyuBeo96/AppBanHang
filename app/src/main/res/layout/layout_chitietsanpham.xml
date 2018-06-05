@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             >
 
             <LinearLayout
@@ -35,15 +35,27 @@
                     android:text="@string/app_name"
                     android:textStyle="bold"
                     android:textSize="18sp"
+                    android:paddingTop="14dp"
                     />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="@string/giasp"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="@color/colorRed"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/giamgiasp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorGray"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"
                     />
 
                 <RatingBar
@@ -55,36 +67,10 @@
                     android:transformPivotY="0dp"
                     />
 
-                <ImageView
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPagerSlideShow"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
-                    android:src="@drawable/avatar"
-                    />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorGray"
-                    android:layout_marginTop="10dp"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cacsanpham"
-                    android:textAlignment="center"
-                    android:textColor="@color/com_facebook_blue"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:padding="10dp"
                     />
 
             </LinearLayout>
@@ -100,6 +86,247 @@
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
     </android.support.design.widget.AppBarLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior = "@string/appbar_scrolling_view_behavior"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cacsanpham"
+                        android:textAlignment="center"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+                <!--Đóng gói-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorWhite"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/banvadonggoiboi"
+                        android:textSize="24sp"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_TenCuaHangDongGoi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tencuahang"
+                        android:textSize="18sp"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trahang"
+                        android:textSize="14sp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dambaochinhhang"
+                        android:textSize="14sp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        >
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/baovenguoimuahang"
+                            android:drawableLeft="@drawable/icon_shield"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorToolBa"
+                            android:background="@color/colorWhite"
+                            />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/status_shield"
+                            android:text="@string/dambaosuhailong"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorGreenDrank"
+                            android:background="@color/colorWhite"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--Chi tiết sản phẩm-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chitietsanpham"
+
+                        />
+
+                </LinearLayout>
+
+                <!--Đánh giá sản phẩm-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/colorWhite"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/danhgiasanpham"
+
+                        />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </ListView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorGray"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xemnhanxet"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+                <!--Bạn sẽ thích-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bansethich"
+                        />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="@string/muahang"
+                android:textAllCaps="true"
+                android:background="@color/bgcart"
+                android:textSize="18sp"
+                />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:src="@drawable/ic_add_shopping_cart_white"
+                android:background="@color/com_facebook_blue"
+                />
+
+        </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

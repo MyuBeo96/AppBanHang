@@ -1,7 +1,9 @@
 package com.myubeo.appbanhang.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.R;
+import com.myubeo.appbanhang.View.ChiTietSanPham.ChiTietSanPhamActivity;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
@@ -36,6 +39,7 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
         TextView txt_tensp;
         TextView txt_giasp;
         TextView txt_giamgia;
+        CardView cardView;
 
         public ViewHolderTopMayTinh(View itemView) {
             super(itemView);
@@ -44,6 +48,7 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
             txt_tensp = itemView.findViewById(R.id.txt_Laptop);
             txt_giasp = itemView.findViewById(R.id.txt_GiaLaptop);
             txt_giamgia = itemView.findViewById(R.id.txt_LaptopGiamGia);
+            cardView = itemView.findViewById(R.id.cardView_Laptop);
         }
     }
 
@@ -66,6 +71,14 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
         NumberFormat numberFormat = new DecimalFormat("###,###");
         String gia = numberFormat.format(sanPham.getGIA()).toString();
         holder.txt_giasp.setText(gia + " VNĐ");
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iChiTietSanPham = new Intent(context, ChiTietSanPhamActivity.class);
+                context.startActivity(iChiTietSanPham);
+            }
+        });
     }
 
     @Override
