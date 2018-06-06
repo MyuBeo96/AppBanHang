@@ -76,6 +76,7 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
             @Override
             public void onClick(View v) {
                 Intent iChiTietSanPham = new Intent(context, ChiTietSanPhamActivity.class);
+                iChiTietSanPham.putExtra("masp", (Integer) v.getTag());
                 context.startActivity(iChiTietSanPham);
             }
         });

@@ -1,5 +1,7 @@
 package com.myubeo.appbanhang.Model.ObjectClass;
 
+import java.util.List;
+
 public class SanPham {
     int MASP;
     String TENSP;
@@ -11,6 +13,24 @@ public class SanPham {
     int MALOAISP;
     int MATHUONGHIEU;
     int LUOTMUA;
+    int MANV;
+    List<ChiTietSanPham> chiTietSanPhamList;
+
+    public int getMANV() {
+        return MANV;
+    }
+
+    public void setMANV(int MANV) {
+        this.MANV = MANV;
+    }
+
+    public List<ChiTietSanPham> getChiTietSanPhamList() {
+        return chiTietSanPhamList;
+    }
+
+    public void setChiTietSanPhamList(List<ChiTietSanPham> chiTietSanPhamList) {
+        this.chiTietSanPhamList = chiTietSanPhamList;
+    }
 
     public int getMASP() {
         return MASP;
