@@ -49,6 +49,7 @@ public class ModelChiTietSanPham {
 
                 sanPham.setMASP(value.getInt("MASP"));
                 sanPham.setTENSP(value.getString("TENSP"));
+                sanPham.setTHONGTIN(value.getString("THONGTIN"));
                 sanPham.setGIA(value.getInt("GIA"));
                 sanPham.setHINHLON(value.getString("HINHLON"));
                 sanPham.setHINHNHO(value.getString("HINHNHO"));

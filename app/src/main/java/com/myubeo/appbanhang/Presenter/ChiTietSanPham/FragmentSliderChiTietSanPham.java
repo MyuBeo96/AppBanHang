@@ -1,6 +1,5 @@
 package com.myubeo.appbanhang.Presenter.ChiTietSanPham;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
