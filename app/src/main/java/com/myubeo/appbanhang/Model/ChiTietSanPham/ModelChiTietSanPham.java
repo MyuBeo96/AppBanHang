@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ModelChiTietSanPham {
 
-    public SanPham LayChiTietSanPham(String tenHam, String tenMang, int masp){
+    public SanPham LayChiTietSanPhamTheoMaSP(String tenHam, String tenMang, int masp){
         SanPham sanPham = new SanPham();
 
         List<ChiTietSanPham> chiTietSanPhamList = new ArrayList<>();

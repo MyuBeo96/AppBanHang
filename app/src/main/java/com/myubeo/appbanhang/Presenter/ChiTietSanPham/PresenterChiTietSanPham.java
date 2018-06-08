@@ -16,7 +16,7 @@ public class PresenterChiTietSanPham implements ImpPresenterChiTietSanPham {
 
     @Override
     public void LayChiTietSanPham(int masp) {
-        SanPham sanPham = modelChiTietSanPham.LayChiTietSanPham("LaySanPhamVaChiTietTheoMaSP", "CHITIETSANPHAM", masp);
+        SanPham sanPham = modelChiTietSanPham.LayChiTietSanPhamTheoMaSP("LaySanPhamVaChiTietTheoMaSP", "CHITIETSANPHAM", masp);
         if(sanPham.getMASP() > 0){
             String[] linkAnh = sanPham.getHINHNHO().split(",");
             viewChiTietSanPham.HienThiSlideAnh(linkAnh);
