@@ -1,5 +1,7 @@
 package com.myubeo.appbanhang.Model.ChiTietSanPham;
 
+import android.util.Log;
+
 import com.myubeo.appbanhang.ConnectInternet.DownloadJSON;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietSanPham;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
@@ -41,6 +43,7 @@ public class ModelChiTietSanPham {
 
         try {
             dataJSON = downloadJSON.get();
+            Log.d("Kiem tra", dataJSON.toString());
             JSONObject jsonObject = new JSONObject(dataJSON);
             JSONArray jsonArray = jsonObject.getJSONArray(tenMang);
             int count = jsonArray.length();
@@ -61,7 +64,7 @@ public class ModelChiTietSanPham {
 
                 JSONArray jsonArrayThongSo = value.getJSONArray("THONGSOKYTHUAT");
                 for(int j = 0; j < jsonArrayThongSo.length(); j++){
-                    JSONObject jsonObject1 = jsonArrayThongSo.getJSONObject(i);
+                    JSONObject jsonObject1 = jsonArrayThongSo.getJSONObject(j);
 
                     for (int k = 0; k < jsonObject1.names().length(); k++){
                         String tenChiTiet = jsonObject1.names().getString(k);

@@ -71,12 +71,13 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
         NumberFormat numberFormat = new DecimalFormat("###,###");
         String gia = numberFormat.format(sanPham.getGIA()).toString();
         holder.txt_giasp.setText(gia + " VNĐ");
+        holder.cardView.setTag(sanPham.getMASP());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent iChiTietSanPham = new Intent(context, ChiTietSanPhamActivity.class);
-                iChiTietSanPham.putExtra("masp", (Integer) v.getTag());
+                iChiTietSanPham.putExtra("masp", (int) v.getTag());
                 context.startActivity(iChiTietSanPham);
             }
         });
