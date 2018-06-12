@@ -25,7 +25,7 @@ public class FragmentSliderChiTietSanPham extends Fragment {
 
         ImageView imageView = view.findViewById(R.id.img_HinhSlider);
 
-        Picasso.get().load(linkAnh).resize(350,350).centerInside().into(imageView);
+        Picasso.get().load(linkAnh).into(imageView);
 
         return view;
     }

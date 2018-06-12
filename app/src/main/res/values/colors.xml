@@ -14,4 +14,6 @@
     <color name="colorGoogle">#da4835</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorTranparentBack">#B2000000</color>
+    <color name="colorSliderInActivity">#83b4cf</color>
+    <color name="colorSliderActivity">#792f03</color>
 </resources>
