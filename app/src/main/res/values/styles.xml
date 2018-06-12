@@ -28,6 +28,8 @@
         <attr name="useValidate" format="boolean"></attr>
     </declare-styleable>
 
-
+    <style name="DoiMauNgoiSao" parent="AppTheme">
+        <item name="colorControlNormal">@color/bgcart</item>
+    </style>
 
 </resources>

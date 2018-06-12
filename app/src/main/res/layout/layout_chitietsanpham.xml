@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title=" "
             >
 
             <LinearLayout
@@ -30,6 +31,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/txt_TenSanPham"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
@@ -39,6 +41,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/txt_GiaTien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/giasp"
@@ -59,18 +62,20 @@
                     />
 
                 <RatingBar
+                    android:id="@+id/rb_DanhGia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:transformPivotX="0dp"
                     android:transformPivotY="0dp"
+                    android:theme="@style/DoiMauNgoiSao"
                     />
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewPagerSlideShow"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="280dp"
                     />
 
             </LinearLayout>
@@ -109,15 +114,44 @@
                     android:background="@color/colorWhite"
                     >
 
-                    <LinearLayout
-                        android:id="@+id/layout_Dots"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
                         >
 
-                    </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/layout_Dots"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="right"
+                            >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_share_black"
+                                android:padding="10dp"
+                                />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_favorite_black"
+                                android:padding="10dp"
+                                />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -232,7 +266,38 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/chitietsanpham"
+                        android:textStyle="bold"
 
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_ThongTinChiTiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:id="@+id/ln_ThongSoKyThuat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thông số kỹ thuật"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_ThemCT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_keyboard_arrow_down_black"
+                        android:padding="10dp"
                         />
 
                 </LinearLayout>

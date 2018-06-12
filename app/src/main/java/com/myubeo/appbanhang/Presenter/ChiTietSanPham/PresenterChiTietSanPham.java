@@ -20,6 +20,7 @@ public class PresenterChiTietSanPham implements ImpPresenterChiTietSanPham {
         if(sanPham.getMASP() > 0){
             String[] linkAnh = sanPham.getHINHNHO().split(",");
             viewChiTietSanPham.HienThiSlideAnh(linkAnh);
+            viewChiTietSanPham.HienThiChiTietSanPham(sanPham);
         }
     }
 }

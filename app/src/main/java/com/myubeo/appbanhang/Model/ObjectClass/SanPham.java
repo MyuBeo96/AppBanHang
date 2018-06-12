@@ -14,7 +14,16 @@ public class SanPham {
     int MATHUONGHIEU;
     int LUOTMUA;
     int MANV;
+    String TENNV;
     List<ChiTietSanPham> chiTietSanPhamList;
+
+    public String getTENNV() {
+        return TENNV;
+    }
+
+    public void setTENNV(String TENNV) {
+        this.TENNV = TENNV;
+    }
 
     public int getMANV() {
         return MANV;
