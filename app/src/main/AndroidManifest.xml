@@ -36,6 +36,8 @@
         <activity android:name=".View.HienThiSanPhamTheoDanhMuc.HienThiSanPhamTheoDanhMucActivity"/>
 
         <activity android:name=".View.ChiTietSanPham.ChiTietSanPhamActivity"/>
+
+        <activity android:name=".View.DanhGia.ThemDanhGiaActivity"/>
     </application>
 
 </manifest>

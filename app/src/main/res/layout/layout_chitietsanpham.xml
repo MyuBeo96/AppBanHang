@@ -312,18 +312,37 @@
                     android:layout_marginTop="10dp"
                     >
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/danhgiasanpham"
+                        android:orientation="horizontal"
+                        >
 
-                        />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/danhgiasanpham"
+                            android:layout_weight="1"
 
-                    <ListView
+                            />
+
+                        <TextView
+                            android:id="@+id/txt_VietDanhGia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/vietdanhgia"
+                            android:gravity="right"
+                            android:textColor="@color/com_facebook_blue"
+                            />
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                    </ListView>
+                    </android.support.v7.widget.RecyclerView>
 
                     <View
                         android:layout_width="match_parent"
