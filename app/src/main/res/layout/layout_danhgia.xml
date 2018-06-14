@@ -2,12 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/themdanhgia"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorRed"
+        android:paddingBottom="10dp"
+        />
+
+    <RatingBar
+        android:id="@+id/rb_SaoDanhGia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        android:theme="@style/DoiMauNgoiSao"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/iput_tieude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/edt_TieuDe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="50"
+            android:lines="1"
+            android:hint="@string/tieude"
+            android:textColor="@color/colorBlack"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/iput_noidung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/edt_NoiDung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:scrollbars="vertical"
+            android:hint="@string/vietnoidung"
+            android:textColor="@color/colorBlack"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_DanhGia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bgcart"
+        android:text="@string/danhgia"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         />
 
 </LinearLayout>

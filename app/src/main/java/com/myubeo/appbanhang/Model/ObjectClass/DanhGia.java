@@ -2,7 +2,7 @@ package com.myubeo.appbanhang.Model.ObjectClass;
 
 
 public class DanhGia {
-    int MADG;
+    String MADG;
     int MASP;
     String TENTHIETBI;
     String TIEUDE;
@@ -10,11 +10,11 @@ public class DanhGia {
     int SOSAO;
     String NGAYDANHGIA;
 
-    public int getMADG() {
+    public String getMADG() {
         return MADG;
     }
 
-    public void setMADG(int MADG) {
+    public void setMADG(String MADG) {
         this.MADG = MADG;
     }
 

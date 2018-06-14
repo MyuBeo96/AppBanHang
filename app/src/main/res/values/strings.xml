@@ -53,4 +53,7 @@
     <string name="muahang">Mua hàng</string>
     <string name="vietdanhgia">Viết đánh giá</string>
     <string name="themdanhgia">Nhận xét về sản phẩm này</string>
+    <string name="vietnoidung">Viết nội dung</string>
+    <string name="tieude">Viết tiêu đề</string>
+    <string name="danhgia">Đánh giá</string>
 </resources>

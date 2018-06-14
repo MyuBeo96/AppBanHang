@@ -1,5 +1,6 @@
 package com.myubeo.appbanhang.View.ChiTietSanPham;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.FragmentSliderChiTietSanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
 import com.myubeo.appbanhang.R;
+import com.myubeo.appbanhang.View.DanhGia.ThemDanhGiaActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
 import java.text.DecimalFormat;
@@ -30,7 +32,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChiTietSanPham, ViewPager.OnPageChangeListener{
+public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChiTietSanPham, ViewPager.OnPageChangeListener, View.OnClickListener{
 
     ViewPager viewPager;
     PresenterChiTietSanPham presenterChiTietSanPham;
@@ -45,6 +47,9 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     ImageView img_ThemCT;
     Boolean kiemTraCT = false;
     LinearLayout ln_ThongSoKyThuat;
+    TextView txt_VietDanhGia;
+
+    int masp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,16 +65,21 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         txt_ThongTinChiTiet = findViewById(R.id.txt_ThongTinChiTiet);
         img_ThemCT = findViewById(R.id.img_ThemCT);
         ln_ThongSoKyThuat = findViewById(R.id.ln_ThongSoKyThuat);
+        txt_VietDanhGia = findViewById(R.id.txt_VietDanhGia);
 
         setSupportActionBar(toolbar);
 
         int masp = getIntent().getIntExtra("masp", 0);
         presenterChiTietSanPham = new PresenterChiTietSanPham(this);
         presenterChiTietSanPham.LayChiTietSanPham(masp);
+
+        txt_VietDanhGia.setOnClickListener(this);
     }
 
     @Override
     public void HienThiChiTietSanPham(final SanPham sanPham) {
+        masp = sanPham.getMASP();
+
         txt_TenSanPham.setText(sanPham.getTENSP());
         NumberFormat numberFormat = new DecimalFormat("###,###");
         String gia = numberFormat.format(sanPham.getGIA()).toString();
@@ -211,5 +221,17 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id){
+            case R.id.txt_VietDanhGia:
+                Intent iThemDanhGia = new Intent(this, ThemDanhGiaActivity.class);
+                iThemDanhGia.putExtra("masp", masp);
+                startActivity(iThemDanhGia);
+                break;
+        }
     }
 }
