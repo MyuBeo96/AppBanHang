@@ -2,6 +2,7 @@ package com.myubeo.appbanhang.View.DanhGia;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -72,11 +73,8 @@ public class ThemDanhGiaActivity extends AppCompatActivity implements RatingBar.
 
     @Override
     public void onClick(View v) {
-        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-
-        }
-        String madg = telephonyManager.getDeviceId();
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        @SuppressLint("MissingPermission") String madg = telephonyManager.getDeviceId();
         String tenthietbi = Build.MODEL;
         String tieude = edt_TieuDe.getText().toString();
         String noidung = edt_NoiDung.getText().toString();

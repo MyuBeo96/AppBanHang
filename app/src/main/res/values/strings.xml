@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AppBanHang</string>
+    <string name="msg">Please all</string>
     <string name="manhinhchao1">Thế giới mua sắm trong tầm tay bạn</string>
     <string name="manhinhchao2">Giao hàng tận nơi + thanh toán dễ dàng</string>
     <string name="manhinhchao3">100% bảo vệ người tiêu dùng</string>
