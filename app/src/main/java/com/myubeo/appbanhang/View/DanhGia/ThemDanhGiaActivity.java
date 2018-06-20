@@ -22,6 +22,8 @@ import com.myubeo.appbanhang.Model.ObjectClass.DanhGia;
 import com.myubeo.appbanhang.Presenter.DanhGia.PresenterDanhGia;
 import com.myubeo.appbanhang.R;
 
+import java.util.List;
+
 public class ThemDanhGiaActivity extends AppCompatActivity implements RatingBar.OnRatingBarChangeListener, ViewDanhGia, View.OnClickListener {
 
     TextInputLayout iput_TieuDe;
@@ -71,6 +73,11 @@ public class ThemDanhGiaActivity extends AppCompatActivity implements RatingBar.
     @Override
     public void DanhGiaThatBai() {
         Toast.makeText(this, "Đánh giá thất bại!!!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void HienThiDanhSachDanhGiaTheoSP(List<DanhGia> danhGiaList) {
+
     }
 
     @Override

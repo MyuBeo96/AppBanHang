@@ -28,6 +28,7 @@ import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.FragmentSliderChiTietSanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
 import com.myubeo.appbanhang.R;
+import com.myubeo.appbanhang.View.DanhGia.DanhGiaActivity;
 import com.myubeo.appbanhang.View.DanhGia.ThemDanhGiaActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
@@ -77,7 +78,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
 
         setSupportActionBar(toolbar);
 
-        int masp = getIntent().getIntExtra("masp", 0);
+        masp = getIntent().getIntExtra("masp", 0);
         presenterChiTietSanPham = new PresenterChiTietSanPham(this);
         presenterChiTietSanPham.LayChiTietSanPham(masp);
         presenterChiTietSanPham.LayDanhSachDanhGiaCuaSanPham(masp, 0);
@@ -253,6 +254,13 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 iThemDanhGia.putExtra("masp", masp);
                 startActivity(iThemDanhGia);
                 break;
+
+
+                case R.id.txt_XemTatCaNhanXet:
+                    Intent iDanhGiaSanPham = new Intent(ChiTietSanPhamActivity.this, DanhGiaActivity.class);
+                    iDanhGiaSanPham.putExtra("masp", masp);
+                    startActivity(iDanhGiaSanPham);
+                    break;
         }
     }
 }
