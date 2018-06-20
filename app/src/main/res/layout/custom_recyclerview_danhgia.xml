@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_TieuDeDanhGia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tieudedanhgia"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <RatingBar
+        android:id="@+id/rb_DanhGiaSao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        style="?android:ratingBarStyleSmall"
+        />
+
+    <TextView
+        android:id="@+id/txt_DuocDangBoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/duocdangboi"
+        android:textColor="@color/colorGray"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/txt_NoiDungDanhGia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="@string/noidungdanhgia"
+        android:paddingTop="5dp"
+        />
+
+
+</LinearLayout>

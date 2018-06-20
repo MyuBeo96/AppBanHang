@@ -339,6 +339,7 @@
                     </LinearLayout>
 
                     <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rcv_DanhGiaChiTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -351,6 +352,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/txt_XemTatCaNhanXet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/xemnhanxet"

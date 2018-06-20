@@ -57,4 +57,7 @@
     <string name="vietnoidung">Viết nội dung</string>
     <string name="tieude">Viết tiêu đề</string>
     <string name="danhgia">Đánh giá</string>
+    <string name="tieudedanhgia">Tiêu đề đánh giá</string>
+    <string name="duocdangboi">Được đăng bởi</string>
+    <string name="noidungdanhgia">Nội dung đánh giá</string>
 </resources>

@@ -6,7 +6,6 @@ import com.myubeo.appbanhang.ConnectInternet.DownloadJSON;
 import com.myubeo.appbanhang.Model.ObjectClass.DanhGia;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

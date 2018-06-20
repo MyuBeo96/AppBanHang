@@ -43,7 +43,11 @@
 
         <activity android:name=".View.DanhGia.ThemDanhGiaActivity"
             android:theme="@style/Base.Theme.AppCompat.Dialog"
-            ></activity>
+            >
+
+        </activity>
+
+        <activity android:name=".View.DanhGia.DanhGiaActivity"/>
     </application>
 
 </manifest>

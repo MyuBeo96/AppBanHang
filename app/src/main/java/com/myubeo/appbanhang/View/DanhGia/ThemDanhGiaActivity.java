@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class ThemDanhGiaActivity extends AppCompatActivity implements RatingBar.
         rb_SaoDanhGia = findViewById(R.id.rb_SaoDanhGia);
         btn_DanhGia = findViewById(R.id.btn_DanhGia);
 
+
         masp = getIntent().getIntExtra("masp", 0);
 
         presenterDanhGia = new PresenterDanhGia(this);
@@ -74,7 +76,8 @@ public class ThemDanhGiaActivity extends AppCompatActivity implements RatingBar.
     @Override
     public void onClick(View v) {
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        @SuppressLint("MissingPermission") String madg = telephonyManager.getDeviceId();
+        @SuppressLint("MissingPermission")
+        String madg = telephonyManager.getDeviceId();
         String tenthietbi = Build.MODEL;
         String tieude = edt_TieuDe.getText().toString();
         String noidung = edt_NoiDung.getText().toString();

@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
@@ -18,8 +20,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.myubeo.appbanhang.Adapter.AdapterDanhGia;
 import com.myubeo.appbanhang.Adapter.AdapterViewPagerSlider;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietSanPham;
+import com.myubeo.appbanhang.Model.ObjectClass.DanhGia;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.FragmentSliderChiTietSanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
@@ -48,8 +52,10 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     Boolean kiemTraCT = false;
     LinearLayout ln_ThongSoKyThuat;
     TextView txt_VietDanhGia;
-
     int masp;
+    List<DanhGia> danhGiaList;
+    RecyclerView rcv_DanhGiaChiTiet;
+    TextView txt_XemTatCaNhanXet;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,14 +72,18 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         img_ThemCT = findViewById(R.id.img_ThemCT);
         ln_ThongSoKyThuat = findViewById(R.id.ln_ThongSoKyThuat);
         txt_VietDanhGia = findViewById(R.id.txt_VietDanhGia);
+        rcv_DanhGiaChiTiet = findViewById(R.id.rcv_DanhGiaChiTiet);
+        txt_XemTatCaNhanXet = findViewById(R.id.txt_XemTatCaNhanXet);
 
         setSupportActionBar(toolbar);
 
         int masp = getIntent().getIntExtra("masp", 0);
         presenterChiTietSanPham = new PresenterChiTietSanPham(this);
         presenterChiTietSanPham.LayChiTietSanPham(masp);
+        presenterChiTietSanPham.LayDanhSachDanhGiaCuaSanPham(masp, 0);
 
         txt_VietDanhGia.setOnClickListener(this);
+        txt_XemTatCaNhanXet.setOnClickListener(this);
     }
 
     @Override
@@ -138,6 +148,17 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
 
         ThemDotSlider(0);
         viewPager.addOnPageChangeListener(this);
+    }
+
+    @Override
+    public void HienThiDanhGia(List<DanhGia> danhGiaList) {
+        AdapterDanhGia adapterDanhGia = new AdapterDanhGia(this, danhGiaList, 3);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        rcv_DanhGiaChiTiet.setLayoutManager(layoutManager);
+        rcv_DanhGiaChiTiet.setAdapter(adapterDanhGia);
+
+        adapterDanhGia.notifyDataSetChanged();
+
     }
 
     private void HienThiChiTiet(SanPham sanPham){
