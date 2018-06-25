@@ -16,6 +16,10 @@ public class PresenterChiTietSanPham implements ImpPresenterChiTietSanPham {
     ModelChiTietSanPham modelChiTietSanPham;
     ModelGioHang modelGioHang;
 
+    public PresenterChiTietSanPham(){
+        modelGioHang = new ModelGioHang();
+    }
+
     public PresenterChiTietSanPham(ViewChiTietSanPham viewChiTietSanPham){
         this.viewChiTietSanPham = viewChiTietSanPham;
         modelChiTietSanPham = new ModelChiTietSanPham();
@@ -52,7 +56,8 @@ public class PresenterChiTietSanPham implements ImpPresenterChiTietSanPham {
         }
     }
 
-    public int DemSPGioHang() {
+    public int DemSPGioHang(Context context) {
+        modelGioHang.MoKetNoiSQLite(context);
         List<SanPham> sanPhamList = modelGioHang.LayDanhSachSanPhamGioHang();
 
         int dem = sanPhamList.size();

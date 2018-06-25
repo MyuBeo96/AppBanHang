@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,7 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
@@ -22,6 +26,7 @@ import com.facebook.login.LoginManager;
 import com.myubeo.appbanhang.Adapter.ExpandableAdapter;
 import com.myubeo.appbanhang.Adapter.ViewPagerAdapter;
 import com.myubeo.appbanhang.Model.ObjectClass.LoaiSanPham;
+import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
 import com.myubeo.appbanhang.Presenter.TrangChu.XuLyMenu.XuLyMenuLogic;
 import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.DangNhap.DangNhapActivity;
@@ -49,6 +54,7 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
     String useName = "";
     AccessToken accessToken;
     Menu menu;
+    TextView txt_GioHang;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,6 +93,13 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menutrangchu, menu);
         this.menu = menu;
+
+        MenuItem menuItem = menu.findItem(R.id.id_Cart);
+        View viewGioHang = MenuItemCompat.getActionView(menuItem);
+        txt_GioHang = viewGioHang.findViewById(R.id.txt_SoLuongSP);
+
+        PresenterChiTietSanPham presenterChiTietSanPham = new PresenterChiTietSanPham();
+        txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
 
         accessToken = xuLyMenuLogic.LayUseFaceBook();
 

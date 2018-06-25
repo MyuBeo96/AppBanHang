@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -65,6 +67,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     TextView txt_XemTatCaNhanXet;
     ImageButton btn_ThemGioHang;
     SanPham sanPhamGioHang;
+    TextView txt_GioHang;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -138,6 +141,13 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menutrangchu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.id_Cart);
+        View viewGioHang = MenuItemCompat.getActionView(menuItem);
+        txt_GioHang = viewGioHang.findViewById(R.id.txt_SoLuongSP);
+
+        txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
+
         return true;
     }
 
@@ -177,6 +187,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     @Override
     public void ThemGioHangThanhCong() {
         Toast.makeText(this, "Sản phẩm đã được thêm vào giỏ hàng thành công", Toast.LENGTH_LONG).show();
+        txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
     }
 
     @Override
