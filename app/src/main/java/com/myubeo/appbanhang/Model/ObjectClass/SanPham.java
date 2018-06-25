@@ -16,6 +16,15 @@ public class SanPham {
     int MANV;
     String TENNV;
     List<ChiTietSanPham> chiTietSanPhamList;
+    byte[] hinhGioHang;
+
+    public byte[] getHinhGioHang() {
+        return hinhGioHang;
+    }
+
+    public void setHinhGioHang(byte[] hinhGioHang) {
+        this.hinhGioHang = hinhGioHang;
+    }
 
     public String getTENNV() {
         return TENNV;

@@ -9,4 +9,6 @@ public interface ViewChiTietSanPham {
     void HienThiChiTietSanPham(SanPham sanPham);
     void HienThiSlideAnh(String[] linkAnh);
     void HienThiDanhGia(List<DanhGia> danhGiaList);
+    void ThemGioHangThanhCong();
+    void ThemGioHangThatBai();
 }

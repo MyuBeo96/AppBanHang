@@ -1,6 +1,8 @@
 package com.myubeo.appbanhang.View.ChiTietSanPham;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,9 +18,11 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.myubeo.appbanhang.Adapter.AdapterDanhGia;
 import com.myubeo.appbanhang.Adapter.AdapterViewPagerSlider;
@@ -32,6 +36,8 @@ import com.myubeo.appbanhang.View.DanhGia.DanhGiaActivity;
 import com.myubeo.appbanhang.View.DanhGia.ThemDanhGiaActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -57,6 +63,8 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     List<DanhGia> danhGiaList;
     RecyclerView rcv_DanhGiaChiTiet;
     TextView txt_XemTatCaNhanXet;
+    ImageButton btn_ThemGioHang;
+    SanPham sanPhamGioHang;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,6 +83,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         txt_VietDanhGia = findViewById(R.id.txt_VietDanhGia);
         rcv_DanhGiaChiTiet = findViewById(R.id.rcv_DanhGiaChiTiet);
         txt_XemTatCaNhanXet = findViewById(R.id.txt_XemTatCaNhanXet);
+        btn_ThemGioHang = findViewById(R.id.btn_ThemGioHang);
 
         setSupportActionBar(toolbar);
 
@@ -85,11 +94,14 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
 
         txt_VietDanhGia.setOnClickListener(this);
         txt_XemTatCaNhanXet.setOnClickListener(this);
+        btn_ThemGioHang.setOnClickListener(this);
     }
 
     @Override
     public void HienThiChiTietSanPham(final SanPham sanPham) {
         masp = sanPham.getMASP();
+
+        sanPhamGioHang = sanPham;
 
         txt_TenSanPham.setText(sanPham.getTENSP());
         NumberFormat numberFormat = new DecimalFormat("###,###");
@@ -160,6 +172,16 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
 
         adapterDanhGia.notifyDataSetChanged();
 
+    }
+
+    @Override
+    public void ThemGioHangThanhCong() {
+        Toast.makeText(this, "Sản phẩm đã được thêm vào giỏ hàng thành công", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void ThemGioHangThatBai() {
+        Toast.makeText(this, "Sản phẩm đã có trong giỏ hàng", Toast.LENGTH_LONG).show();
     }
 
     private void HienThiChiTiet(SanPham sanPham){
@@ -255,12 +277,26 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 startActivity(iThemDanhGia);
                 break;
 
-
                 case R.id.txt_XemTatCaNhanXet:
                     Intent iDanhGiaSanPham = new Intent(ChiTietSanPhamActivity.this, DanhGiaActivity.class);
                     iDanhGiaSanPham.putExtra("masp", masp);
                     startActivity(iDanhGiaSanPham);
                     break;
+
+            case R.id.btn_ThemGioHang:
+                Fragment fragment = fragmentList.get(0);
+                View view = fragment.getView();
+                ImageView imageView = view.findViewById(R.id.img_HinhSlider);
+                Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100,byteArrayOutputStream);
+                byte[] hinhSPGioHang = byteArrayOutputStream.toByteArray();
+
+                sanPhamGioHang.setHinhGioHang(hinhSPGioHang);
+
+                presenterChiTietSanPham.ThemGioHang(sanPhamGioHang, this);
+                break;
         }
     }
 }
