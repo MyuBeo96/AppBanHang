@@ -36,6 +36,7 @@ import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
 import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.DanhGia.DanhGiaActivity;
 import com.myubeo.appbanhang.View.DanhGia.ThemDanhGiaActivity;
+import com.myubeo.appbanhang.View.GioHang.GioHangActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
 import java.io.ByteArrayInputStream;
@@ -68,6 +69,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     ImageButton btn_ThemGioHang;
     SanPham sanPhamGioHang;
     TextView txt_GioHang;
+    boolean onPause = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -147,6 +149,14 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         txt_GioHang = viewGioHang.findViewById(R.id.txt_SoLuongSP);
 
         txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
+
+        viewGioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iGioHang = new Intent(ChiTietSanPhamActivity.this, GioHangActivity.class);
+                startActivity(iGioHang);
+            }
+        });
 
         return true;
     }
@@ -309,5 +319,21 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 presenterChiTietSanPham.ThemGioHang(sanPhamGioHang, this);
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(onPause){
+            PresenterChiTietSanPham presenterChiTietSanPham = new PresenterChiTietSanPham();
+            txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        onPause = true;
     }
 }

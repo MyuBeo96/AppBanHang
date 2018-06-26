@@ -23,6 +23,8 @@ import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ChiTietSanPham.PresenterChiTietSanPham;
 import com.myubeo.appbanhang.Presenter.HienThiSanPhamTheoDanhMuc.PresenterHienThiSPTheoTH;
 import com.myubeo.appbanhang.R;
+import com.myubeo.appbanhang.View.ChiTietSanPham.ChiTietSanPhamActivity;
+import com.myubeo.appbanhang.View.GioHang.GioHangActivity;
 import com.myubeo.appbanhang.View.TrangChu.ViewHienThiSPTheoTH;
 
 import java.util.List;
@@ -41,6 +43,7 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
     List<SanPham> sanPhamList1;
     ProgressBar progressBar;
     TextView txt_GioHang;
+    boolean onPause = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,6 +80,14 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
 
         PresenterChiTietSanPham presenterChiTietSanPham = new PresenterChiTietSanPham();
         txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
+
+        viewGioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iGioHang = new Intent(HienThiSanPhamTheoDanhMucActivity.this, GioHangActivity.class);
+                startActivity(iGioHang);
+            }
+        });
 
         return true;
     }
@@ -125,5 +136,21 @@ public class HienThiSanPhamTheoDanhMucActivity extends AppCompatActivity impleme
         sanPhamList1.addAll(sanPhamsLoadMore);
 
         adapterChiTietMayTinh.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(onPause){
+            PresenterChiTietSanPham presenterChiTietSanPham = new PresenterChiTietSanPham();
+            txt_GioHang.setText(String.valueOf(presenterChiTietSanPham.DemSPGioHang(this)));
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        onPause = true;
     }
 }

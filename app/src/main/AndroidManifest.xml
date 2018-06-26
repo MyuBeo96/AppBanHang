@@ -47,7 +47,13 @@
 
         </activity>
 
-        <activity android:name=".View.DanhGia.DanhGiaActivity"/>
+        <activity android:name=".View.DanhGia.DanhGiaActivity"
+            android:label="@string/danhgia"
+            />
+
+        <activity android:name=".View.GioHang.GioHangActivity"
+            android:label="@string/giohang"
+            />
     </application>
 
 </manifest>

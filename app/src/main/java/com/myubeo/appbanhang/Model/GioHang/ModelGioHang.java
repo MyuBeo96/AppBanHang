@@ -19,6 +19,17 @@ public class ModelGioHang {
         database = dataSanPham.getWritableDatabase();
     }
 
+    public boolean XoaSanPhamGioHang(int masp){
+        int kiemtra = database.delete(DataSanPham.TB_GIOHANG, DataSanPham.TB_GIOHANG_MASP + " = " + masp, null);
+
+        if(kiemtra > 0){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
     public boolean ThemGioHang(SanPham sanPham){
 
         ContentValues contentValues = new ContentValues();
