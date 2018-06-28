@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.myubeo.appbanhang.Model.GioHang.ModelGioHang;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
@@ -23,10 +25,13 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
 
     Context context;
     List<SanPham> sanPhams;
+    ModelGioHang modelGioHang;
 
     public AdapterGioHang(Context context, List<SanPham> sanPhams){
         this.context = context;
         this.sanPhams = sanPhams;
+        modelGioHang = new ModelGioHang();
+        modelGioHang.MoKetNoiSQLite(context);
     }
 
     public class ViewHolderGioHang extends RecyclerView.ViewHolder {
@@ -35,6 +40,9 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
         TextView txt_GiaGioHang;
         TextView txt_GiamGiaGioHang;
         ImageView img_XoaGioHang;
+        ImageButton btn_GiamSL;
+        TextView txt_SoLuong;
+        ImageButton btn_TangSL;
 
         public ViewHolderGioHang(View itemView) {
             super(itemView);
@@ -44,6 +52,9 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
             txt_GiaGioHang = itemView.findViewById(R.id.txt_GiaGioHang);
             txt_GiamGiaGioHang = itemView.findViewById(R.id.txt_GiamGiaGioHang);
             img_XoaGioHang = itemView.findViewById(R.id.img_XoaGioHang);
+            btn_GiamSL = itemView.findViewById(R.id.btn_GiamSL);
+            txt_SoLuong = itemView.findViewById(R.id.txt_SoLuong);
+            btn_TangSL = itemView.findViewById(R.id.btn_TangSL);
         }
     }
 
@@ -58,7 +69,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderGioHang holder, final int position) {
+    public void onBindViewHolder(final ViewHolderGioHang holder, final int position) {
 
         final SanPham sanPham = sanPhams.get(position);
 
@@ -84,12 +95,45 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
             }
         });
 
+        holder.txt_SoLuong.setText(String.valueOf(sanPham.getSOLUONG()));
+
+        holder.btn_GiamSL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int soluong = Integer.parseInt(holder.txt_SoLuong.getText().toString());
+
+                if(soluong > 1) {
+                    soluong--;
+                }
+
+                modelGioHang.CapNhatGioHang(sanPham.getMASP(), soluong);
+                holder.txt_SoLuong.setText(String.valueOf(soluong));
+
+            }
+        });
+
+        holder.btn_TangSL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int soluong = Integer.parseInt(holder.txt_SoLuong.getText().toString());
+                int soLuongTonKho = sanPham.getSOLUONGTONKHO();
+
+                if(soluong < soLuongTonKho){
+                    soluong++;
+                }else {
+                    Toast.makeText(context, "Số lượng sản phẩm bạn mua quá số lượng có trong kho của cửa hàng", Toast.LENGTH_LONG).show();
+                }
+
+                modelGioHang.CapNhatGioHang(sanPham.getMASP(), soluong);
+                holder.txt_SoLuong.setText(String.valueOf(soluong));
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return sanPhams.size();
     }
-
 
 }

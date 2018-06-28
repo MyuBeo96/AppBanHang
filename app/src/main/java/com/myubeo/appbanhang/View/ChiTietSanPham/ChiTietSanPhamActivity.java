@@ -107,6 +107,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         masp = sanPham.getMASP();
 
         sanPhamGioHang = sanPham;
+        sanPhamGioHang.setSOLUONGTONKHO(sanPham.getSOLUONG());
 
         txt_TenSanPham.setText(sanPham.getTENSP());
         NumberFormat numberFormat = new DecimalFormat("###,###");
@@ -315,6 +316,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 byte[] hinhSPGioHang = byteArrayOutputStream.toByteArray();
 
                 sanPhamGioHang.setHinhGioHang(hinhSPGioHang);
+                sanPhamGioHang.setSOLUONG(1);
 
                 presenterChiTietSanPham.ThemGioHang(sanPhamGioHang, this);
                 break;
