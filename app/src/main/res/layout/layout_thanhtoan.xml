@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guitoi"
+            android:textColor="@color/com_facebook_blue"
+            android:textSize="18sp"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/txt_TenNguoiNhan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tennguoinhan"
+            android:background="@drawable/border_thanhtoan"
+            android:padding="10dp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diachi"
+            android:textColor="@color/com_facebook_blue"
+            android:textSize="18sp"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:id="@+id/txt_DiaChiNguoiNhan"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/diachinguoinhan"
+            android:background="@drawable/border_thanhtoan"
+            android:padding="10dp"
+            android:gravity="top"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sodienthoai"
+            android:textColor="@color/com_facebook_blue"
+            android:textSize="18sp"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:id="@+id/txt_SoDienThoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sdtnguoinhan"
+            android:background="@drawable/border_thanhtoan"
+            android:padding="10dp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tuychon"
+            android:textColor="@color/com_facebook_blue"
+            android:textSize="18sp"
+            android:padding="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageButton
+                android:id="@+id/btn_ship"
+                android:layout_weight="1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ship"
+                android:scaleType="centerInside"
+                android:background="@color/colorWhite"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_visa"
+                android:layout_weight="1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/visa"
+                android:scaleType="centerInside"
+                android:background="@color/colorWhite"
+                />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cb_camket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/camket"
+            android:textSize="18sp"
+            android:textColor="@color/colorBlack"
+            />
+
+        <Button
+            android:id="@+id/btn_thanhtoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bgcart"
+            android:text="@string/thanhtoan"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

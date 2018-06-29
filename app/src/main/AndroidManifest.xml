@@ -54,6 +54,10 @@
         <activity android:name=".View.GioHang.GioHangActivity"
             android:label="@string/giohang"
             />
+
+        <activity android:name=".View.ThanhToan.ThanhToanActivity"
+            android:label="@string/thanhtoan"
+            />
     </application>
 
 </manifest>

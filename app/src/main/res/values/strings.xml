@@ -61,4 +61,13 @@
     <string name="duocdangboi">Được đăng bởi</string>
     <string name="noidungdanhgia">Nội dung đánh giá</string>
     <string name="giohang">Giỏ hàng</string>
+    <string name="guitoi">Gửi tới: </string>
+    <string name="tennguoinhan">Tên người nhận </string>
+    <string name="diachi">Địa chỉ: </string>
+    <string name="diachinguoinhan">Địa chỉ của người nhận </string>
+    <string name="sodienthoai">Số điện thoại: </string>
+    <string name="sdtnguoinhan">Số điện thoại của người nhận </string>
+    <string name="tuychon">Tùy chọn giao hàng</string>
+    <string name="thanhtoan">Thanh toán</string>
+    <string name="camket">Tôi cam kết các thông tin đặt hàng trên là chính xác!</string>
 </resources>
