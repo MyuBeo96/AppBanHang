@@ -59,6 +59,18 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
+    public void LayDanhSachSanPhamTrongGioHang(List<SanPham> sanPhams) {
+
+        for (int i = 0; i < sanPhams.size(); i++){
+            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
+            chiTietHoaDon.setMASP(sanPhams.get(i).getMASP());
+            chiTietHoaDon.setSOLUONG(sanPhams.get(i).getSOLUONG());
+
+            chiTietHoaDonList.add(chiTietHoaDon);
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
@@ -95,17 +107,5 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void DatHangThatBai() {
         Toast.makeText(this, "Đặt hàng thất bại", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void LayDanhSachSanPhamTrongGioHang(List<SanPham> sanPhams) {
-
-        for (int i = 0; i < chiTietHoaDonList.size(); i++){
-            ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-            chiTietHoaDon.setMASP(chiTietHoaDonList.get(i).getMASP());
-            chiTietHoaDon.setSOLUONG(chiTietHoaDonList.get(i).getSOLUONG());
-
-            chiTietHoaDonList.add(chiTietHoaDon);
-        }
     }
 }
