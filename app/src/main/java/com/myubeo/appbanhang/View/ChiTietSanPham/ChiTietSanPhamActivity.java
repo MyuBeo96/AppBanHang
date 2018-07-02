@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,6 +38,7 @@ import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.DanhGia.DanhGiaActivity;
 import com.myubeo.appbanhang.View.DanhGia.ThemDanhGiaActivity;
 import com.myubeo.appbanhang.View.GioHang.GioHangActivity;
+import com.myubeo.appbanhang.View.ThanhToan.ThanhToanActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
 import java.io.ByteArrayInputStream;
@@ -67,6 +69,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     RecyclerView rcv_DanhGiaChiTiet;
     TextView txt_XemTatCaNhanXet;
     ImageButton btn_ThemGioHang;
+    Button btn_MuaNgay;
     SanPham sanPhamGioHang;
     TextView txt_GioHang;
     boolean onPause = false;
@@ -89,6 +92,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         rcv_DanhGiaChiTiet = findViewById(R.id.rcv_DanhGiaChiTiet);
         txt_XemTatCaNhanXet = findViewById(R.id.txt_XemTatCaNhanXet);
         btn_ThemGioHang = findViewById(R.id.btn_ThemGioHang);
+        btn_MuaNgay = findViewById(R.id.btn_MuaNgay);
 
         setSupportActionBar(toolbar);
 
@@ -100,6 +104,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         txt_VietDanhGia.setOnClickListener(this);
         txt_XemTatCaNhanXet.setOnClickListener(this);
         btn_ThemGioHang.setOnClickListener(this);
+        btn_MuaNgay.setOnClickListener(this);
     }
 
     @Override
@@ -319,6 +324,25 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 sanPhamGioHang.setSOLUONG(1);
 
                 presenterChiTietSanPham.ThemGioHang(sanPhamGioHang, this);
+                break;
+
+            case R.id.btn_MuaNgay:
+                Fragment fragment1 = fragmentList.get(0);
+                View view1 = fragment1.getView();
+                ImageView imageView1 = view1.findViewById(R.id.img_HinhSlider);
+                Bitmap bitmap1 = ((BitmapDrawable)imageView1.getDrawable()).getBitmap();
+
+                ByteArrayOutputStream byteArrayOutputStream1 = new ByteArrayOutputStream();
+                bitmap1.compress(Bitmap.CompressFormat.PNG, 100,byteArrayOutputStream1);
+                byte[] hinhSPGioHang1 = byteArrayOutputStream1.toByteArray();
+
+                sanPhamGioHang.setHinhGioHang(hinhSPGioHang1);
+                sanPhamGioHang.setSOLUONG(1);
+
+                presenterChiTietSanPham.ThemGioHang(sanPhamGioHang, this);
+
+                Intent iThanhToan = new Intent(ChiTietSanPhamActivity.this, ThanhToanActivity.class);
+                startActivity(iThanhToan);
                 break;
         }
     }

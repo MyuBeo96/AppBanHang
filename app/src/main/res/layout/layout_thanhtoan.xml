@@ -103,25 +103,66 @@
             android:orientation="horizontal"
             >
 
-            <ImageButton
-                android:id="@+id/btn_ship"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ship"
-                android:scaleType="centerInside"
-                android:background="@color/colorWhite"
-                />
+                >
 
-            <ImageButton
-                android:id="@+id/btn_visa"
+                <ImageButton
+                    android:id="@+id/btn_ship"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ship"
+                    android:scaleType="centerInside"
+                    android:background="@color/colorWhite"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_ThanhToanTanNoi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thanhtoantannoi"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/visa"
-                android:scaleType="centerInside"
-                android:background="@color/colorWhite"
-                />
+                >
+
+
+
+                <ImageButton
+                    android:id="@+id/btn_visa"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/visa"
+                    android:scaleType="centerInside"
+                    android:background="@color/colorWhite"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_ThanhToanThe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thanhtoanquathe"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

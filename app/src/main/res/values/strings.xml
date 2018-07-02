@@ -69,5 +69,7 @@
     <string name="sdtnguoinhan">Số điện thoại của người nhận </string>
     <string name="tuychon">Tùy chọn giao hàng</string>
     <string name="thanhtoan">Thanh toán</string>
+    <string name="thanhtoantannoi">Thanh toán khi nhân hàng</string>
+    <string name="thanhtoanquathe">Thanh toán bằng visa</string>
     <string name="camket">Tôi cam kết các thông tin đặt hàng trên là chính xác!</string>
 </resources>

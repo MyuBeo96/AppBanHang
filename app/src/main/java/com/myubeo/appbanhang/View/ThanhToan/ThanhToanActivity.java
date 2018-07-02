@@ -1,7 +1,10 @@
 package com.myubeo.appbanhang.View.ThanhToan;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietHoaDon;
@@ -16,6 +20,7 @@ import com.myubeo.appbanhang.Model.ObjectClass.HoaDon;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.Presenter.ThanhToan.PresenterThanhToan;
 import com.myubeo.appbanhang.R;
+import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +35,14 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
     ImageButton btn_visa;
     CheckBox cb_camket;
     Button btn_thanhtoan;
+    TextView txt_ThanhToanTanNoi;
+    TextView txt_ThanhToanThe;
 
     PresenterThanhToan presenterThanhToan;
 
     List<ChiTietHoaDon> chiTietHoaDonList = new ArrayList<>();
+
+    int hinhThucThanhToan = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,13 +58,17 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
         btn_visa = findViewById(R.id.btn_visa);
         cb_camket = findViewById(R.id.cb_camket);
         btn_thanhtoan = findViewById(R.id.btn_thanhtoan);
+        txt_ThanhToanTanNoi = findViewById(R.id.txt_ThanhToanTanNoi);
+        txt_ThanhToanThe = findViewById(R.id.txt_ThanhToanThe);
 
-        presenterThanhToan = new PresenterThanhToan(this);
-        presenterThanhToan.LayDanhSachSPGioHang(this);
+        presenterThanhToan = new PresenterThanhToan(this, this);
+        presenterThanhToan.LayDanhSachSPGioHang();
 
         setSupportActionBar(toolbar);
 
         btn_thanhtoan.setOnClickListener(this);
+        btn_ship.setOnClickListener(this);
+        btn_visa.setOnClickListener(this);
     }
 
     @Override
@@ -85,6 +98,7 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
                         hoaDon.setTENNGUOINHAN(tennguoinhan);
                         hoaDon.setSODIENTHOAI(sodt);
                         hoaDon.setDIACHI(diachi);
+                        hoaDon.setCHUYENKHOAN(hinhThucThanhToan);
                         hoaDon.setChiTietHoaDons(chiTietHoaDonList);
 
                         presenterThanhToan.ThemHoaDon(hoaDon);
@@ -96,12 +110,41 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 break;
+
+            case R.id.btn_visa:
+                ChonHinhThucThanhToan(txt_ThanhToanThe, txt_ThanhToanTanNoi);
+                hinhThucThanhToan = 1;
+                break;
+
+            case R.id.btn_ship:
+                ChonHinhThucThanhToan(txt_ThanhToanTanNoi, txt_ThanhToanThe);
+                hinhThucThanhToan = 0;
+                break;
         }
+    }
+
+    private void ChonHinhThucThanhToan(TextView txt_DuocChon, TextView txt_KhongDuocChon){
+        txt_DuocChon.setTextColor(getIdColor(R.color.colorFacebook));
+        txt_KhongDuocChon.setTextColor(getIdColor(R.color.colorGray));
+    }
+
+    private int getIdColor(int idColor){
+        int color = 0;
+
+        if(Build.VERSION.SDK_INT > 21){
+            color = ContextCompat.getColor(this, idColor);
+        }else {
+            color = getResources().getColor(idColor);
+        }
+
+        return color;
     }
 
     @Override
     public void DatHangThanhCong() {
         Toast.makeText(this, "Đặt hàng thành công", Toast.LENGTH_LONG).show();
+        Intent iTrangChu = new Intent(ThanhToanActivity.this, TrangChuActivity.class);
+        startActivity(iTrangChu);
     }
 
     @Override

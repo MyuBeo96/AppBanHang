@@ -15,12 +15,14 @@ public class PresenterThanhToan implements ImpPresenterThanhToan {
     ViewThanhToan viewThanhToan;
     ModelThanhToan modelThanhToan;
     ModelGioHang modelGioHang;
+    List<SanPham> sanPhamList;
 
-    public  PresenterThanhToan(ViewThanhToan viewThanhToan){
+    public  PresenterThanhToan(ViewThanhToan viewThanhToan, Context context){
         this.viewThanhToan = viewThanhToan;
 
         modelThanhToan = new ModelThanhToan();
         modelGioHang = new ModelGioHang();
+        modelGioHang.MoKetNoiSQLite(context);
     }
 
     @Override
@@ -28,15 +30,20 @@ public class PresenterThanhToan implements ImpPresenterThanhToan {
         boolean kiemtra = modelThanhToan.ThemHoaDon(hoaDon);
         if(kiemtra){
             viewThanhToan.DatHangThanhCong();
+
+            int dem = sanPhamList.size();
+
+            for(int i = 0; i < dem; i++){
+                modelGioHang.XoaSanPhamGioHang(sanPhamList.get(i).getMASP());
+            }
         }else {
             viewThanhToan.DatHangThatBai();
         }
     }
 
     @Override
-    public void LayDanhSachSPGioHang(Context context) {
-        modelGioHang.MoKetNoiSQLite(context);
-        List<SanPham> sanPhamList = modelGioHang.LayDanhSachSanPhamGioHang();
+    public void LayDanhSachSPGioHang() {
+        sanPhamList = modelGioHang.LayDanhSachSanPhamGioHang();
         viewThanhToan.LayDanhSachSanPhamTrongGioHang(sanPhamList);
     }
 }
