@@ -2,6 +2,7 @@ package com.myubeo.appbanhang.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.media.Image;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.myubeo.appbanhang.Model.ObjectClass.ChiTietKhuyenMai;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
 import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.ChiTietSanPham.ChiTietSanPhamActivity;
@@ -68,8 +70,26 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
         Picasso.get().load(sanPham.getHINHLON()).resize(150,150).centerCrop().into(holder.img_HinhSP);
         holder.txt_tensp.setText(sanPham.getTENSP());
 
+        ChiTietKhuyenMai chiTietKhuyenMai = sanPham.getChiTietKhuyenMai();
+        int giaTien = sanPham.getGIA();
+        if(chiTietKhuyenMai != null){
+
+            int phanTramGiamGia = chiTietKhuyenMai.getPHANTRAMKM();
+
+            NumberFormat numberFormat = new DecimalFormat("###,###");
+            String gia = numberFormat.format(giaTien);
+
+            holder.txt_giamgia.setVisibility(View.VISIBLE);
+            holder.txt_giamgia.setPaintFlags(holder.txt_giamgia.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.txt_giamgia.setText(gia + " VNĐ");
+
+            giaTien = giaTien * phanTramGiamGia / 100;
+
+
+        }
+
         NumberFormat numberFormat = new DecimalFormat("###,###");
-        String gia = numberFormat.format(sanPham.getGIA()).toString();
+        String gia = numberFormat.format(giaTien);
         holder.txt_giasp.setText(gia + " VNĐ");
         holder.cardView.setTag(sanPham.getMASP());
 
