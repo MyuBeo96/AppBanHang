@@ -40,8 +40,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 //        listFragment.add(new ThuongHieuFragment());
 
         titleFragment.add("Điện tử");
-        titleFragment.add("Nổi bật");
         titleFragment.add("Chương trình khuyến mại");
+        titleFragment.add("Nổi bật");
 //        titleFragment.add("Nhà cửa & đời sống");
 //        titleFragment.add("Mẹ & bé");
 //        titleFragment.add("Làm đẹp");

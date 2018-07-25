@@ -50,9 +50,13 @@ public class FragmentDangNhap extends Fragment implements View.OnClickListener, 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_dangnhap, container, false);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
-                .enableAutoManage(getActivity(), this).addApi(Auth.GOOGLE_SIGN_IN_API, gso).build();
+                .enableAutoManage(getActivity(), this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
 
         FacebookSdk.sdkInitialize(getContext().getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
@@ -108,7 +112,7 @@ public class FragmentDangNhap extends Fragment implements View.OnClickListener, 
         callbackManager.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GOOGLE_PLUS){
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            Log.d("Google",result.getSignInAccount().getEmail() );
+            Log.d("Test", result.getSignInAccount().getEmail());
         }
 
     }

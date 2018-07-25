@@ -85,7 +85,6 @@ public class AdapterTopMayTinh extends RecyclerView.Adapter<AdapterTopMayTinh.Vi
 
             giaTien = giaTien * phanTramGiamGia / 100;
 
-
         }
 
         NumberFormat numberFormat = new DecimalFormat("###,###");

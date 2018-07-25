@@ -17,7 +17,7 @@
     <string name="lable">Đăng nhập / Đăng ký</string>
     <string name="facebook_app_id">417354355402547</string>
     <string name="fb_login_protocol_scheme">fb417354355402547</string>
-    <string name="google_plus_client">284410965972-mh27l2oem7ckb0jkf554159d25udtdd0.apps.googleusercontent.com</string>
+    <string name="google_plus_client">579801578015-qvms8llsuq5pke75fva54uban6kuj0ml.apps.googleusercontent.com</string>
     <string name="thuong_hieu">CÁC THƯƠNG HIỆU LỚN</string>
     <string name="laptop">TOP MÁY TÍNH</string>
     <string name="asus">ASUS</string>
@@ -72,4 +72,5 @@
     <string name="thanhtoantannoi">Thanh toán khi nhân hàng</string>
     <string name="thanhtoanquathe">Thanh toán bằng visa</string>
     <string name="camket">Tôi cam kết các thông tin đặt hàng trên là chính xác!</string>
+    <string name="tongtien">Tổng tiền:</string>
 </resources>

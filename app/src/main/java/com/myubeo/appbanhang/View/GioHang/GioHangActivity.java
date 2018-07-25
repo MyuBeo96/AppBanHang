@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.myubeo.appbanhang.Adapter.AdapterGioHang;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
@@ -16,6 +17,9 @@ import com.myubeo.appbanhang.Presenter.GioHang.PresenterGioHang;
 import com.myubeo.appbanhang.R;
 import com.myubeo.appbanhang.View.ThanhToan.ThanhToanActivity;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GioHangActivity extends AppCompatActivity implements ViewGioHang, View.OnClickListener {
@@ -24,6 +28,8 @@ public class GioHangActivity extends AppCompatActivity implements ViewGioHang, V
     PresenterGioHang presenterGioHang;
     Toolbar toolbar;
     Button btn_MuaHang;
+    public static TextView txt_tongTien;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +39,7 @@ public class GioHangActivity extends AppCompatActivity implements ViewGioHang, V
         recyclerView = findViewById(R.id.rcv_GioHang);
         toolbar = findViewById(R.id.toolbar);
         btn_MuaHang = findViewById(R.id.btn_MuaHang);
+        txt_tongTien = findViewById(R.id.txt_tongTien);
 
         setSupportActionBar(toolbar);
 
@@ -50,6 +57,15 @@ public class GioHangActivity extends AppCompatActivity implements ViewGioHang, V
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapterGioHang);
         adapterGioHang.notifyDataSetChanged();
+
+        long tongTien = 0;
+        for(int i = 0; i < sanPhams.size(); i++){
+            tongTien += sanPhams.get(i).getGIA();
+        }
+
+        NumberFormat numberFormat = new DecimalFormat("###,###");
+        String gia = numberFormat.format(tongTien);
+        txt_tongTien.setText(gia + " VNĐ");
     }
 
     @Override

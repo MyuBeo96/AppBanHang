@@ -178,6 +178,8 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
         expandableAdapter.notifyDataSetChanged();
     }
 
+    
+
     @Override
     protected void onResume() {
         super.onResume();

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Tiêu đề"
         android:layout_weight="1"
-        android:padding="8dp"
+        android:padding="10dp"
         />
 
     <ImageView
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_black"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
         />
 
 </LinearLayout>

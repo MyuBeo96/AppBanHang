@@ -3,6 +3,7 @@ package com.myubeo.appbanhang.Model.ChiTietSanPham;
 import android.util.Log;
 
 import com.myubeo.appbanhang.ConnectInternet.DownloadJSON;
+import com.myubeo.appbanhang.Model.ObjectClass.ChiTietKhuyenMai;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietSanPham;
 import com.myubeo.appbanhang.Model.ObjectClass.DanhGia;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
@@ -105,7 +106,10 @@ public class ModelChiTietSanPham {
             int count = jsonArray.length();
             for(int i = 0; i < count; i++){
                 JSONObject value = jsonArray.getJSONObject(i);
+                ChiTietKhuyenMai chiTietKhuyenMai = new ChiTietKhuyenMai();
+                chiTietKhuyenMai.setPHANTRAMKM(value.getInt("PHANTRAMKM"));
 
+                sanPham.setChiTietKhuyenMai(chiTietKhuyenMai);
                 sanPham.setMASP(value.getInt("MASP"));
                 sanPham.setTENSP(value.getString("TENSP"));
                 sanPham.setTHONGTIN(value.getString("THONGTIN"));

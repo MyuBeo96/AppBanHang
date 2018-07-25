@@ -2,6 +2,7 @@ package com.myubeo.appbanhang.View.ChiTietSanPham;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 
 import com.myubeo.appbanhang.Adapter.AdapterDanhGia;
 import com.myubeo.appbanhang.Adapter.AdapterViewPagerSlider;
+import com.myubeo.appbanhang.Model.ObjectClass.ChiTietKhuyenMai;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietSanPham;
 import com.myubeo.appbanhang.Model.ObjectClass.DanhGia;
 import com.myubeo.appbanhang.Model.ObjectClass.SanPham;
@@ -41,7 +43,6 @@ import com.myubeo.appbanhang.View.GioHang.GioHangActivity;
 import com.myubeo.appbanhang.View.ThanhToan.ThanhToanActivity;
 import com.myubeo.appbanhang.View.TrangChu.TrangChuActivity;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -57,6 +58,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
     List<Fragment> fragmentList;
     TextView txt_TenSanPham;
     TextView txt_GiaTien;
+    TextView txt_GiamGia;
     TextView txt_TenCuaHangDongGoi;
     TextView txt_ThongTinChiTiet;
     Toolbar toolbar;
@@ -82,6 +84,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         viewPager = findViewById(R.id.viewPagerSlideShow);
         txt_TenSanPham = findViewById(R.id.txt_TenSanPham);
         txt_GiaTien = findViewById(R.id.txt_GiaTien);
+        txt_GiamGia = findViewById(R.id.txt_GiamGia);
         toolbar = findViewById(R.id.toolbar);
         layout_Dots = findViewById(R.id.layout_Dots);
         txt_TenCuaHangDongGoi = findViewById(R.id.txt_TenCuaHangDongGoi);
@@ -115,12 +118,35 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
         sanPhamGioHang.setSOLUONGTONKHO(sanPham.getSOLUONG());
 
         txt_TenSanPham.setText(sanPham.getTENSP());
+
+        int giaTien = sanPham.getGIA();
+        ChiTietKhuyenMai chiTietKhuyenMai = sanPham.getChiTietKhuyenMai();
+
+        if(chiTietKhuyenMai != null){
+            int phanTramGiamGia = chiTietKhuyenMai.getPHANTRAMKM();
+            if(phanTramGiamGia != 0) {
+
+                NumberFormat numberFormat = new DecimalFormat("###,###");
+                String gia = numberFormat.format(giaTien);
+
+                txt_GiamGia.setVisibility(View.VISIBLE);
+                txt_GiamGia.setPaintFlags(txt_GiamGia.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                txt_GiamGia.setText(gia + " VNĐ");
+
+                giaTien = giaTien * phanTramGiamGia/100;
+            }
+        }
         NumberFormat numberFormat = new DecimalFormat("###,###");
-        String gia = numberFormat.format(sanPham.getGIA()).toString();
+        String gia = numberFormat.format(giaTien);
         txt_GiaTien.setText(gia + " VNĐ");
 
         txt_TenCuaHangDongGoi.setText(sanPham.getTENNV());
-        txt_ThongTinChiTiet.setText(sanPham.getTHONGTIN().substring(0,100));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            txt_ThongTinChiTiet.setText(Html.fromHtml(sanPham.getTHONGTIN().substring(0,100),Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            txt_ThongTinChiTiet.setText(Html.fromHtml(sanPham.getTHONGTIN().substring(0,100)));
+        }
+//        txt_ThongTinChiTiet.setText(sanPham.getTHONGTIN().substring(0,100));
 
         if(sanPham.getTHONGTIN().length() < 100){
             img_ThemCT.setVisibility(View.GONE);
@@ -132,7 +158,12 @@ public class ChiTietSanPhamActivity extends AppCompatActivity implements ViewChi
                 public void onClick(View v) {
                     kiemTraCT = !kiemTraCT;
                     if(kiemTraCT){
-                        txt_ThongTinChiTiet.setText(sanPham.getTHONGTIN());
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                            txt_ThongTinChiTiet.setText(Html.fromHtml(sanPham.getTHONGTIN(),Html.FROM_HTML_MODE_LEGACY));
+                        } else {
+                            txt_ThongTinChiTiet.setText(Html.fromHtml(sanPham.getTHONGTIN()));
+                        }
+//                        txt_ThongTinChiTiet.setText(sanPham.getTHONGTIN());
                         img_ThemCT.setImageDrawable(getHinh(R.drawable.ic_keyboard_arrow_up_black));
                         ln_ThongSoKyThuat.setVisibility(View.VISIBLE);
                         HienThiChiTiet(sanPham);

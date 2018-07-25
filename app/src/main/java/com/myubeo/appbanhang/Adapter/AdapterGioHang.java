@@ -21,11 +21,14 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 
+import static com.myubeo.appbanhang.View.GioHang.GioHangActivity.txt_tongTien;
+
 public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHolderGioHang> {
 
     Context context;
     List<SanPham> sanPhams;
     ModelGioHang modelGioHang;
+    String giaSP;
 
     public AdapterGioHang(Context context, List<SanPham> sanPhams){
         this.context = context;
@@ -76,7 +79,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
         holder.txt_TieuDeGioHang.setText(sanPham.getTENSP());
 
         final NumberFormat numberFormat = new DecimalFormat("###,###");
-        String gia = numberFormat.format(sanPham.getGIA()).toString();
+        final String gia = numberFormat.format(sanPham.getGIA()).toString();
         holder.txt_GiaGioHang.setText(gia + " VNĐ");
 
         Bitmap bitmapHinhGioHang = BitmapFactory.decodeByteArray(sanPham.getHinhGioHang(),0, sanPham.getHinhGioHang().length);
@@ -109,6 +112,23 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 modelGioHang.CapNhatGioHang(sanPham.getMASP(), soluong);
                 holder.txt_SoLuong.setText(String.valueOf(soluong));
 
+                Log.d("Số lượng", " - " + soluong);
+                long giaHienTai = sanPham.getGIA();
+                long tongTienSP = giaHienTai * soluong;
+                NumberFormat numberFormat = new DecimalFormat("###,###");
+                giaSP = numberFormat.format(tongTienSP);
+                holder.txt_GiaGioHang.setText(giaSP + " VNĐ");
+                Log.d("Giá tiền", " - " + giaSP);
+//                long thanhTien = tongTienSP;
+//                for(int i = 0; i < sanPhams.size(); i++){
+//                    thanhTien -= sanPhams.get(i).getGIA();
+//                }
+//
+//                NumberFormat numberFormat1 = new DecimalFormat("###,###");
+//                String giaTongTien = numberFormat1.format(thanhTien);
+                txt_tongTien.setText(giaSP + " VNĐ");
+//                Log.d("Giá tiền tong", " - " + giaTongTien + " - " + thanhTien);
+
             }
         });
 
@@ -126,6 +146,24 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
 
                 modelGioHang.CapNhatGioHang(sanPham.getMASP(), soluong);
                 holder.txt_SoLuong.setText(String.valueOf(soluong));
+
+                Log.d("Số lượng", " - " + soluong);
+                long giaHienTai = sanPham.getGIA();
+                long tongTienSP = giaHienTai * soluong;
+                NumberFormat numberFormat = new DecimalFormat("###,###");
+                giaSP = numberFormat.format(tongTienSP);
+                holder.txt_GiaGioHang.setText(giaSP + " VNĐ");
+                Log.d("Giá tiền", " - " + giaSP);
+//                long thanhTien = tongTienSP;
+//                for(int i = 0; i < sanPhams.size(); i++){
+//                    thanhTien += sanPhams.get(i).getGIA();
+//                }
+//
+//                NumberFormat numberFormat1 = new DecimalFormat("###,###");
+//                String giaTongTien = numberFormat1.format(thanhTien);
+                txt_tongTien.setText(giaSP + " VNĐ");
+//                Log.d("Giá tiền tong", " - " + giaTongTien + " - " + thanhTien);
+
             }
         });
 
