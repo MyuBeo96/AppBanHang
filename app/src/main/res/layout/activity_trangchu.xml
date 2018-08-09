@@ -65,8 +65,7 @@
                             android:textAllCaps="false"
                             android:layout_gravity="start"
                             android:textAlignment="viewStart"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="16sp" />
+                            android:textColor="@color/colorBlack" />
 
                         <View
                             android:layout_width="1dp"
@@ -79,9 +78,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginRight="12dp"
+                            android:layout_margin="10dp"
                             android:background="@drawable/selector_search"
-                            android:padding="10dp"
                             android:src="@drawable/ic_photo_camera_black" />
 
                     </LinearLayout>
@@ -128,7 +126,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorWhite"
-        android:choiceMode="singleChoice"
+        android:choiceMode="multipleChoice"
         android:groupIndicator="@null"
         >
 

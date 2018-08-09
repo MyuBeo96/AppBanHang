@@ -79,10 +79,13 @@ public class CustomPassword extends EditText{
                         TextInputLayout textInputLayout = (TextInputLayout) v.getParent();
                         matcher = pattern.matcher(chuoi);
 
-                        if(matcher.matches()) {
-                            Log.d("Kiểm tra", matcher.matches() + "");
+                        if(!matcher.matches()) {
+//                            Log.d("Kiểm tra", matcher.matches() + "");
                             textInputLayout.setErrorEnabled(true);
                             textInputLayout.setError("Bạn nhập sai mật khẩu, vui lòng kiểm tra lại");
+                        }else {
+                            textInputLayout.setErrorEnabled(false);
+                            textInputLayout.setError("");
                         }
                     }
                 }

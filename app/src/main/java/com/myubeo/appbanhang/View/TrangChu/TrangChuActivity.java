@@ -3,8 +3,11 @@ package com.myubeo.appbanhang.View.TrangChu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,9 +45,9 @@ import java.util.List;
  * Created by as1 on 3/27/2018.
  */
 
-public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
-    public static final String SERVER_NAME = "http://192.168.113.2/webLazada/loaisanpham.php";
-    public static final String SERVER= "http://192.168.113.2/webLazada";
+public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView, AppBarLayout.OnOffsetChangedListener{
+    public static final String SERVER_NAME = "http://192.168.155.2/webLazada/loaisanpham.php";
+    public static final String SERVER= "http://192.168.155.2/weblazada";
 
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -57,6 +61,8 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
     Menu menu;
     TextView txt_GioHang;
     boolean onPause = false;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    AppBarLayout appBarLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +77,8 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
         viewPager = findViewById(R.id.id_ViewPager);
         drawerLayout = findViewById(R.id.id_DrawerLayout);
         expandableListView = findViewById(R.id.ep_Menu);
+        collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+        appBarLayout = findViewById(R.id.appbar);
 
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
@@ -89,6 +97,8 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
         xuLyMenuLogic = new XuLyMenuLogic(this);
         xuLyMenuLogic.LayDanhSachMenu();
         xuLyMenuLogic.LayUseFaceBook();
+
+        appBarLayout.addOnOffsetChangedListener(this);
     }
 
     @Override
@@ -194,5 +204,17 @@ public class TrangChuActivity extends AppCompatActivity implements XuLyMenuView{
         super.onPause();
 
         onPause = true;
+    }
+
+    @Override
+    public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+        //Log.d("Kiểm tra:", collapsingToolbarLayout.getHeight() + " - " + verticalOffset + " - " + ViewCompat.getMinimumHeight(collapsingToolbarLayout));
+        if(collapsingToolbarLayout.getHeight() + verticalOffset <= 1.5 * ViewCompat.getMinimumHeight(collapsingToolbarLayout)){
+            LinearLayout linearLayout = appBarLayout.findViewById(R.id.lnSearch);
+            linearLayout.animate().alpha(0).setDuration(2000);
+        }else {
+            LinearLayout linearLayout = appBarLayout.findViewById(R.id.lnSearch);
+            linearLayout.animate().alpha(1).setDuration(2000);
+        }
     }
 }

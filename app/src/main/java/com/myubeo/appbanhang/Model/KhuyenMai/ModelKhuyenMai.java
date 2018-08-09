@@ -1,5 +1,7 @@
 package com.myubeo.appbanhang.Model.KhuyenMai;
 
+import android.util.Log;
+
 import com.myubeo.appbanhang.ConnectInternet.DownloadJSON;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietKhuyenMai;
 import com.myubeo.appbanhang.Model.ObjectClass.ChiTietSanPham;
@@ -69,6 +71,9 @@ public class ModelKhuyenMai {
                     sanPham.setChiTietKhuyenMai(chiTietKhuyenMai);
 
                     sanPhamList.add(sanPham);
+
+
+                    Log.d("Khuyen mai:", String.valueOf(sanPhamList));
                 }
 
                 khuyenMai.setDanhSachSanPhamKhuyenMai(sanPhamList);

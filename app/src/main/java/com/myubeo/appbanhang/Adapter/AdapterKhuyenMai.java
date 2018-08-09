@@ -56,7 +56,7 @@ public class AdapterKhuyenMai extends RecyclerView.Adapter<AdapterKhuyenMai.View
 
         holder.rcv_ItemKhuyenMai.setLayoutManager(layoutManager);
         holder.rcv_ItemKhuyenMai.setAdapter(adapterTopMayTinh);
-//        adapterTopMayTinh.notifyDataSetChanged();
+        adapterTopMayTinh.notifyDataSetChanged();
     }
 
     @Override
